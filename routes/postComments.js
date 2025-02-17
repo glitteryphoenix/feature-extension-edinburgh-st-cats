@@ -2,27 +2,41 @@ const express = require("express");
 const router = express.Router();
 const db = require("../model/helper");
 
-// ✅ POST a new comment for a specific cat
-router.post("/cat/:catid", async (req, res) => {
-  try {
-    const { catid } = req.params;
-    const { comment_text, author } = req.body;
+// ✅ Debug log when the POST route is loaded
+console.log("✅ POST /api/comments/cat/:cat_id route loaded!");
 
-    if (!comment_text || !author) {
-      return res.status(400).json({ error: "Comment text and author are required" });
+router.post("/cat/:cat_id", async (req, res) => {
+  try {
+    const { title, comment, username } = req.body;
+    const cat_id = req.params.cat_id;
+
+    // ✅ Log incoming data for debugging
+    console.log("➡️ Received comment data:", { title, comment, username, cat_id });
+
+    // ✅ Ensure required fields exist
+    if (!title || !comment || !username) {
+      console.error("❌ Missing fields:", { title, comment, username });
+      return res.status(400).json({ error: "Title, comment, and username are required" });
     }
 
+    // ✅ Insert comment into database
     await db(
-      "INSERT INTO comments (cat_id, comment_text, author) VALUES (?, ?, ?)",
-      [catid, comment_text, author]
+      "INSERT INTO comments (title, comment, time, cat_id, username) VALUES (?, ?, NOW(), ?, ?)",
+      [title, comment, cat_id, username]
     );
 
-    // Fetch updated comments after insertion
-    const results = await db("SELECT * FROM comments WHERE cat_id = ?", [catid]);
+    // ✅ Fetch and return updated list of comments
+    const results = await db("SELECT * FROM comments WHERE cat_id = ?", [cat_id]);
+    console.log("✅ Successfully added comment:", results.data);
+    
     res.status(201).json(results.data);
   } catch (err) {
+    console.error("❌ Error posting comment:", err);
     res.status(500).json({ error: err.message });
   }
 });
 
 module.exports = router;
+
+
+
