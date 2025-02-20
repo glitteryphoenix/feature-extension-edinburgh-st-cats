@@ -1,61 +1,37 @@
-# 🐱 Edinburgh Street Cats Tracker
+# 🐾 Edinburgh Street Cats Tracker
 
-A **full-stack web application** for tracking, viewing, and commenting on street cats in **Edinburgh**. Built with **React, Node.js, Express, MySQL, and Leaflet.js** for an interactive mapping experience. 🏡📍
-
----
-
-## 🎯 Features
-✅ **View all street cats** on an interactive **map**  
-✅ **Add a new cat** with a name, image, location, description, and color  
-✅ **View individual cat details**  
-✅ **Leave comments** on each cat  
-✅ **Delete a cat** (admin feature)  
-✅ **Responsive UI** with Bootstrap & custom styles  
-✅ **Fast backend with MySQL database & Express.js**  
+This is a **full-stack web application** built with **React, Node.js, Express, and MySQL** to **track street cats in Edinburgh**. Users can:
+- View all reported street cats 🐱
+- Add a new cat with details and an image 📸
+- View individual cat details and comments ✍️
+- Leave comments on specific cats 💬
+- See cat locations on an interactive map 📍
+- Delete cats if necessary ❌
 
 ---
 
-## 🛠️ Technologies Used
-### **Frontend** (📍 `React.js`)
-- React Router for navigation
-- Bootstrap for styling
-- Leaflet.js for mapping Edinburgh’s neighborhoods
-- Fetch API for communication with the backend
+## **🛠 Tech Stack**
+### **Frontend (React)**
+- **React Router** for navigation
+- **Bootstrap** for styling
+- **Leaflet.js** for maps
+- **Fetch API** for data requests
 
-### **Backend** (🛠 `Node.js + Express`)
-- Express.js for API routing
-- MySQL for the database
-- CORS for handling cross-origin requests
-- dotenv for managing environment variables
+### **Backend (Node.js & Express)**
+- **Express.js** for routing
+- **MySQL** as the database
+- **dotenv** for environment variables
+- **CORS** to allow frontend-backend communication
 
---
+### Dependencies 
 
-## 🎯 Installation Guide
-### **1️⃣ Clone the Repository**
+Run `npm install` in the project folder to install dependencies related to the backend 
 
-git clone https://github.com/YOUR_GITHUB_USERNAME/edinburgh-street-cats.git
+`cd client` and run `npm install` ro install dependencies related to the frontend 
 
-cd edinburgh-street-cats
+### Database Prep 
 
-run npm install in the project directory. This will install server-related dependencies such as express. 
-
-cd client and run npm install. This will install client dependencies. 
-
-create a MySQL database 
-
-CREATE DATABASE street_cats_db;
-
-import the database schema 
-
-run the following command inside the project directory: 
-
-npm run migrate 
-
-this will create the necessary tables (cats and comments)
-
-configure .env files 
-
-create a .env file in the project directory with: 
+Create `.env` file in project directory and add 
 
 DB_HOST=localhost
 DB_USER=root
@@ -63,39 +39,29 @@ DB_PASS=yourpassword
 DB_NAME=street_cats_db
 PORT=4000
 
-RUNNING THE APPLICATION 
+### Running the Application 
 
-start the backend 
+1. Start the Backend 
+Go to project directory and run `npm start` 
+It should run at: http://localhost:4000/
 
-go to the project directory and run npm start 
+2. Start the Frontend 
+`cd client` 
+`npm run dev` 
+The app should be accessible at: http://localhost:5173/
 
-it should run at: 
+### API Endpoints 
 
-It should run at: http://localhost:4000/ 
+Cats API
 
-start the frontend: 
+GET = /api/cats
+POST = /api/cats
+GET = /api/cats/:id
+DELETE = /api/cats/:id 
 
-cd client 
-npm run dev 
+Comments API 
 
-the app should be accessible at: http://localhost:5173/
+GET = /api/comments/cat/:cat_id
+POST = /api/comments/cat/:cat_id
 
-📌 API Endpoints
-🐱 Cats API
-Method	Endpoint	Description
-GET	/api/cats	Get all cats
-POST	/api/cats	Add a new cat
-GET	/api/cats/:id	Get details of a specific cat
-DELETE	/api/cats/:id	Delete a cat
-💬 Comments API
-Method	Endpoint	Description
-GET	/api/comments/cat/:cat_id	Get all comments for a specific cat
-POST	/api/comments/cat/:cat_id	Add a comment to a specific cat
-
-✅ Interactive Map → See where street cats were spotted 📍
-✅ Cat Profiles → View detailed info about each cat 🐱
-✅ Comments → Add notes about a cat and read others' thoughts ✍️
-✅ Bootstrap Styling → Responsive, mobile-friendly design 📱
-✅ Delete Functionality → Remove cats if needed ❌
-
-
+---
