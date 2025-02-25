@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LocationDropDownMenu from "../components/LocationDropdownMenu";
 
 function AddCat() {
   const navigate = useNavigate();
@@ -14,7 +15,10 @@ function AddCat() {
   const [error, setError] = useState(null);
 
   function handleChange(e) {
+    console.log(e.target)
+    console.log(e.target.value, e.target.name)
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    
   }
 
   async function handleSubmit(e) {
@@ -61,6 +65,7 @@ function AddCat() {
 
           <div className="mb-3">
             <label className="form-label">Location:</label>
+            <LocationDropDownMenu handleChange={handleChange}/>
             <input
               type="text"
               className="form-control"
@@ -82,6 +87,9 @@ function AddCat() {
               placeholder="Optional - paste an image URL"
             />
           </div>
+
+          
+         
 
           <div className="mb-3">
             <label className="form-label">Description:</label>

@@ -29,6 +29,7 @@ function CatsList() {
   return (
     <div>
       <h2>🐱 Available Cats</h2>
+      {/*SEARCH FOR CATS BY LOCATION*/}
       <ul>
         {cats.map((cat) => (
           <li key={cat.id}>
