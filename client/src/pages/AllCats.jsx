@@ -40,35 +40,51 @@ function AllCats() {
   }
 
   return (
-    <div className="container mt-4">
-      <h1 className="text-center mb-4">🐾 Street Cats of Edinburgh</h1>
+    <div
+      // className="container mt-4"
+      style={{ backgroundColor: "#d9d9d9", minHeight: "1000vh" }} // Background color of the page
+    >
+      {/* <h1 className="text-center mb-4">Cats of Edinburgh</h1> */}
 
-      {/* Map Section */}
+      {/* MAP */}
       <div className="mb-4">
         <Map cats={cats} />
       </div>
 
-      {/* Grid Layout for Cats */}
+ {/*ADD CAT BUTTON*/}
+ <div className="text-center mt-4">
+        <Link to="/add-cat" className="btn btn-success">Add New Cat</Link>
+      </div>
+   
+      {/* GRID LAYOUT FOR ALL CATS */}
       <div className="row justify-content-center">
         {cats.length > 0 ? (
           cats.map((cat) => (
             <div key={cat.id} className="col-lg-4 col-md-6 col-sm-12 mb-4">
-              <div className="card shadow-sm text-center cat-card">
-                <img 
+              <div className="card shadow-sm text-center cat-card bg-white" style={{ width: "18rem" }}> {/* Custom card width */}
+                <img
                   src={cat.image || "https://via.placeholder.com/150"} 
-                  alt={cat.name} 
-                  className="card-img-top cat-img"
+                  alt={cat.name}
+                  className="card-img-top" 
+                  style={{objectFit: "cover"}}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{cat.name}</h5>
-                  <p className="card-text"><strong>📍 {cat.location}</strong></p>
-                  
-                  <div className="d-flex justify-content-between">
-                    <Link to={`/cats/${cat.id}`} className="btn btn-primary">
+                  <h5 className="card-title"><strong>{cat.name}</strong></h5>
+                  <ul className="list-group list-group-flush text-left">
+                    <li className="list-group-item">🌍 {cat.location}</li>
+                    <li className="list-group-item">ℹ️ {cat.colour}</li>
+                    <li className="list-group-item">🔎 {cat.description}</li>
+                  </ul>
+                  <div className="d-flex justify-content-between mt-3">
+                    <Link to={`/cats/${cat.id}`} className="btn btn-primary"  style={{
+              backgroundColor: "#29733C",
+              borderColor: "#29733C",
+              color: "white",
+            }}>
                       View Details
                     </Link>
-                    <button onClick={() => handleDelete(cat.id)} className="btn btn-danger">
-                      🗑 Delete
+                    <button onClick={() => handleDelete(cat.id)} className="btn btn-outline-secondary">
+                    ✖
                     </button>
                   </div>
                 </div>
@@ -80,18 +96,9 @@ function AllCats() {
         )}
       </div>
 
-      {/* Add Cat Button */}
-      <div className="text-center mt-4">
-        <Link to="/add-cat" className="btn btn-success">➕ Add a New Cat</Link>
-      </div>
+     
     </div>
   );
 }
 
 export default AllCats;
-
-
-
-
-
-

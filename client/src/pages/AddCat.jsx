@@ -9,16 +9,13 @@ function AddCat() {
     location: "",
     image: "",
     description: "",
-    colour: ""
+    colour: "",
   });
 
   const [error, setError] = useState(null);
 
   function handleChange(e) {
-    console.log(e.target)
-    console.log(e.target.value, e.target.name)
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    
   }
 
   async function handleSubmit(e) {
@@ -44,67 +41,79 @@ function AddCat() {
   }
 
   return (
-    <div className="add-cat-container">
-      <div className="card p-4 shadow-lg add-cat-form">
-        <h2 className="text-center mb-4">🐱 Add a New Cat</h2>
+    <div
+      className="add-cat-container d-flex justify-content-center align-items-center vh-100"
+      style={{ backgroundColor: "#d9d9d9" }} // Set the background color here
+    >
+      <div className="card p-4 add-cat-form w-50 border-0 bg-white"> {/* Set the card's background color to white */}
+        <h2 className="text-center mb-4">Add New Cat</h2>
 
         {error && <p className="alert alert-danger">{error}</p>}
 
+        {/* NAME */}
         <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label className="form-label">Cat Name:</label>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <label className="input-group-text" htmlFor="basic-addon1">Name</label>
+            </div>
             <input
               type="text"
               className="form-control"
               name="name"
               value={formData.name}
               onChange={handleChange}
+              placeholder="If you don't know the cat's name, then guess!"
+              aria-describedby="basic-addon1"
               required
             />
           </div>
 
-          <div className="mb-3">
-            <label className="form-label">Location:</label>
-            <LocationDropDownMenu handleChange={handleChange}/>
-            <input
-              type="text"
-              className="form-control"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              required
-            />
+          {/* LOCATION */}
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <label className="input-group-text" htmlFor="locationSelect">Location</label>
+            </div>
+            <LocationDropDownMenu handleChange={handleChange} />
           </div>
 
-          <div className="mb-3">
-            <label className="form-label">Image URL:</label>
+          {/* IMAGE URL */}
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon2">Image URL</span>
+            </div>
             <input
               type="text"
               className="form-control"
               name="image"
               value={formData.image}
               onChange={handleChange}
-              placeholder="Optional - paste an image URL"
+              placeholder="https://...."
+              aria-describedby="basic-addon2"
             />
           </div>
 
-          
-         
-
-          <div className="mb-3">
-            <label className="form-label">Description:</label>
+          {/* DESCRIPTION */}
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon3">Description</span>
+            </div>
             <textarea
               className="form-control"
               name="description"
               rows="3"
               value={formData.description}
               onChange={handleChange}
+              placeholder="Include any relevant information about this cat."
               required
+              aria-describedby="basic-addon3"
             ></textarea>
           </div>
 
-          <div className="mb-3">
-            <label className="form-label">Colour:</label>
+          {/* COLOUR */}
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon4">Colour</span>
+            </div>
             <input
               type="text"
               className="form-control"
@@ -112,10 +121,22 @@ function AddCat() {
               value={formData.colour}
               onChange={handleChange}
               required
+              aria-describedby="basic-addon4"
             />
           </div>
 
-          <button type="submit" className="btn btn-success w-100">➕ Add Cat</button>
+          {/* SUBMIT */}
+          <button
+            type="submit"
+            className="btn w-30"
+            style={{
+              backgroundColor: "#29733C",
+              borderColor: "#29733C",
+              color: "white",
+            }}
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
@@ -125,4 +146,4 @@ function AddCat() {
 export default AddCat;
 
 
-
+// export default AddCat;
