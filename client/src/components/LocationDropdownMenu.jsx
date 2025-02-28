@@ -1,7 +1,7 @@
 import React from "react";
 
 const LocationDropDownMenu = ({ handleChange }) => {
-  const locations = ["Leith", "Old Town", "New Town", "Stockbridge", "Morningside", "Portobello", "Southside", "Tollcross", "Bruntsfield", "Gorgie", "Dalry", "Corstorphine", "South Queensferry", "West End" ]; // Example locations
+  const locations = ["Leith", "Old Town", "New Town", "Stockbridge", "Morningside", "Portobello", "Southside", "Tollcross", "Bruntsfield", "Gorgie", "Dalry", "Corstorphine", "South Queensferry", "West End" ]; 
 
   return (
     <select

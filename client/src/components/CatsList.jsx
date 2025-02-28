@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import LocationDropDownMenu from "./LocationDropdownMenu";
 
 function CatsList() {
   const [cats, setCats] = useState([]); // Store fetched cat data
@@ -29,7 +30,6 @@ function CatsList() {
   return (
     <div>
       <h2>🐱 Available Cats</h2>
-      {/*SEARCH FOR CATS BY LOCATION*/}
       <ul>
         {cats.map((cat) => (
           <li key={cat.id}>

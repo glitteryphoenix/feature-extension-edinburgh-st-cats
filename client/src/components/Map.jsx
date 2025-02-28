@@ -71,7 +71,8 @@ function Map({ cats }) {
   const edinburghCoords = [55.9533, -3.1883]; // Center the map on Edinburgh
 
   return (
-    <MapContainer center={edinburghCoords} zoom={12} style={{ height: "400px", width: "100%" }}>
+    <div className="map" style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+    <MapContainer center={edinburghCoords} zoom={12} style={{ height: "400px", width: "70%" }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
       {/* 🐾 Place markers based on neighborhood */}
@@ -83,12 +84,13 @@ function Map({ cats }) {
           <Marker key={cat.id} position={position}>
             <Popup>
               <strong>{cat.name}</strong> <br />
-              📍 {cat.location}
+              🐾 {cat.location}
             </Popup>
           </Marker>
         );
       })}
     </MapContainer>
+    </div>
   );
 }
 

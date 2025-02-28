@@ -4,8 +4,8 @@ import SingleCat from "./pages/SingleCat";
 import AddCat from "./pages/AddCat";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import "./styles.css";
-import "./index.css";
+// import "./styles.css";
+// import "./index.css";
 import "./app.css";
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
           <Route path="/" element={<AllCats />} />
           <Route path="/cats/:id" element={<SingleCat />} />
           <Route path="/add-cat" element={<AddCat />} />
+          {/* Add a page for info on how to indentify a pet cat, feral cat, unwell cat, inc contact details for local Cats Protection or RSPCA etc? */}
           <Route path="*" element={<h2>404 - Page Not Found</h2>} />
         </Routes>
       </div>

@@ -67,6 +67,20 @@ router.get("/", async (req, res) => {
   }
 });
 
+// ✅ GET all cats from LOCATION
+router.get("/:location", async (req, res) => {
+  try {
+    const results = await db("SELECT * FROM cats WHERE location = ?", [req.params.location]);
+    if (results.data.length === 0) {
+      return res.status(404).json({ error: "No cats from this location" });
+    }
+    res.json(results.data);
+  } catch (err) {
+    console.error("GET /cats error:", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // ✅ GET a single cat by ID
 router.get("/:id", async (req, res) => {
   try {

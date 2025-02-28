@@ -13,6 +13,17 @@ export const getCats = async () => {
   }
 };
 
+// // ✅ Filter cats by location
+export const getCatsByLocation = async (location) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/cats/${location}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching cats:", error);
+    return [];
+  }
+};
+
 // ✅ Get comments for a specific cat
 export const getComments = async (catId) => {
   try {
