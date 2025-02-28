@@ -41,13 +41,15 @@ CREATE TABLE comments (
 --
 INSERT INTO cats (name, location, image, description, colour)
 VALUES 
-('Whiskers', 'New York', 'whiskers.jpg', 'A friendly orange tabby.', 'Orange'),
-('Shadow', 'San Francisco', 'shadow.jpg', 'A mysterious black cat.', 'Black');
+('Whiskers', 'Old Town', 'whiskers.jpg', 'This little brown cat loves hanging out by the park, watching the world go by or maybe just bird watching! According to her collar she is called Whiskers.', 'Brown (tabby)'),
+('Creepy', 'Leith', 'creepy.jpg', 'Midnight visitor alert! This black and white cat keeps popping up on the outdoor cctv. Who do you belong to, mysterious little kitty?', 'Black and white (tuxedo)'),
+('Toby', 'Stockbridge', 'toby.jpg', 'Met the friendliest fluffball today! This cutie practically demanded cuddles. Clearly a professional in the art of charm!', 'Orange and white'),
+('Shadow', 'New Town', 'shadow.jpg', 'Morning coffee with a side of cat spotting ☕🐱 This sleek black cat lives opposite the café and always seems to be watching us. Plotting world domination? Or just hoping for a snack?', 'Black');
 
 INSERT INTO comments (cat_id, comment_text, author)
 VALUES 
-(1, 'Such a cute cat!', 'Alice'),
-(1, 'I love orange tabbies!', 'Bob'),
+(1, 'Such a cute cat! I see her on my way home from work', 'Alice'),
+(1, 'I love tabbies!', 'Bob'),
 (2, 'Black cats are the best!', 'Charlie');
 
 

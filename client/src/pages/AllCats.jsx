@@ -53,6 +53,25 @@ function AllCats() {
 
   return (
     <div className="container mt-5">
+
+      {/* SEARCH BY LOCATION */}
+<div className="text-center my-4">
+  <h3>Search for cats in your neighborhood!</h3>
+  <div className="d-flex justify-content-center align-items-center gap-2">
+    <LocationDropDownMenu 
+      handleChange={(e) => setLocation(e.target.value)} 
+      className="form-select form-select-sm w-auto" // Makes it smaller
+    />
+    <button 
+      onClick={fetchCatsByLocation} 
+      className="btn btn-success" 
+      style={{ fontSize: "1.2rem" }}
+    >
+      Search
+    </button>
+  </div>
+</div>
+
       {/* MAP */}
       <div className="mb-4">
         <Map cats={cats} />
@@ -68,14 +87,7 @@ function AllCats() {
           Add New Cat
         </Link>
       </div>
-
-{/* SEARCH BY LOCATION */}
-<div>
-  <h4> Search for cats in </h4>
-  <LocationDropDownMenu handleChange={(e) => setLocation(e.target.value)} />
-  <button onClick={fetchCatsByLocation}> Search </button>
-</div>
-
+ 
 
       {/* GRID LAYOUT FOR ALL CATS */}
       <div className="row justify-content-center">
