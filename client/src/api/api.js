@@ -13,7 +13,7 @@ export const getCats = async () => {
   }
 };
 
-// ✅ Get  specific cat
+// ✅ Get single cat
 export const getSingleCat = async (catId) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/cats/${catId}`);
@@ -24,7 +24,7 @@ export const getSingleCat = async (catId) => {
   }
 };
 
-// // ✅ Filter cats by location
+// ✅ Filter cats by location
 export const getCatsByLocation = async (location) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/cats/${location}`);
@@ -35,7 +35,7 @@ export const getCatsByLocation = async (location) => {
   }
 };
 
-// ✅ Get comments for a specific cat
+// ✅ Get comments for a single cat
 export const getComments = async (catId) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/comments/cat/${catId}`);

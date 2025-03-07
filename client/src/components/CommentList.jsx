@@ -8,8 +8,7 @@ function CommentList({ comments }) {
           <ul className="list-group">
             {comments.map((comment) => (
               <li key={comment.id} className="list-group-item">
-                {/* <strong>{comment.title}</strong> by {comment.author} */}
-                <strong>{comment.author}</strong>
+                <em>{comment.author}</em>
                 <p>{comment.comment_text}</p>
               </li>
             ))}
