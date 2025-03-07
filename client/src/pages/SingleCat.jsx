@@ -14,6 +14,7 @@ function SingleCat() {
     async function fetchCatData() {
       try {
         const res = await fetch(`http://localhost:4000/api/cats/${id}`);
+        console.log(res);
         if (!res.ok) throw new Error("Cat not found");
         const data = await res.json();
         setCat(data);
@@ -30,6 +31,7 @@ function SingleCat() {
         const res = await fetch(`http://localhost:4000/api/comments/cat/${id}`);
         if (!res.ok) throw new Error("Failed to load comments");
         const data = await res.json();
+        console.log(data);
         setComments(data);
       } catch (err) {
         console.error("Error fetching comments:", err);

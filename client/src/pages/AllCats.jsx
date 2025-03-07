@@ -52,25 +52,24 @@ function AllCats() {
   }
 
   return (
-    <div className="container mt-5">
-
+    <div className="container mt-5 w-100" style={{ backgroundColor: "#d9d9d9", minHeight: "100vh", padding: "20px" }}>
       {/* SEARCH BY LOCATION */}
-<div className="text-center my-4">
-  <h3>Search for cats in your neighborhood!</h3>
-  <div className="d-flex justify-content-center align-items-center gap-2">
-    <LocationDropDownMenu 
-      handleChange={(e) => setLocation(e.target.value)} 
-      className="form-select form-select-sm w-auto" // Makes it smaller
-    />
-    <button 
-      onClick={fetchCatsByLocation} 
-      className="btn btn-success" 
-      style={{ fontSize: "1.2rem" }}
-    >
-      Search
-    </button>
-  </div>
-</div>
+      <div className="text-center my-4">
+        <h3>Search for cats in your neighborhood!</h3>
+        <div className="d-flex justify-content-center align-items-center gap-2">
+          <LocationDropDownMenu 
+            handleChange={(e) => setLocation(e.target.value)} 
+            className="form-select form-select-sm w-auto" 
+          />
+          <button 
+            onClick={fetchCatsByLocation} 
+            className="btn btn-success" 
+            style={{ fontSize: "1.2rem" }}
+          >
+            Search
+          </button>
+        </div>
+      </div>
 
       {/* MAP */}
       <div className="mb-4">
@@ -81,29 +80,27 @@ function AllCats() {
       <div className="text-center my-4"> 
         <Link 
           to="/add-cat" 
-          className="btn btn-success btn-lg px-4 py-3" // Makes the button bigger
-          style={{ fontSize: "1.2rem" }} // Slightly larger font
+          className="btn btn-success btn-lg px-4 py-4" 
+          style={{ fontSize: "1.2rem" }}
         >
           Add New Cat
         </Link>
       </div>
- 
 
       {/* GRID LAYOUT FOR ALL CATS */}
       <div className="row justify-content-center">
         {cats.length > 0 ? (
           cats.map((cat) => (
             <div key={cat.id} className="col-lg-3 col-md-4 col-sm-6 mb-4"> 
-              {/* Adjusted grid: 4 per row on large screens, 3 on medium, 2 on small */}
               <div 
                 className="card shadow-sm text-center bg-white"
-                style={{ width: "100%", minHeight: "400px" }} // Cards take full column width
+                style={{ width: "100%", minHeight: "400px" }}
               >
                 <img
                   src={cat.image || "https://via.placeholder.com/150"} 
                   alt={cat.name}
                   className="card-img-top" 
-                  style={{ height: "200px", objectFit: "cover" }} // Ensures uniform image height
+                  style={{ width: "200px", height: "200px", objectFit: "cover", margin: "auto" }}
                 />
                 <div className="card-body">
                   <h5 className="card-title"><strong>{cat.name}</strong></h5>
@@ -116,11 +113,7 @@ function AllCats() {
                     <Link 
                       to={`/cats/${cat.id}`} 
                       className="btn btn-primary"
-                      style={{
-                        backgroundColor: "#29733C",
-                        borderColor: "#29733C",
-                        color: "white",
-                      }}
+                      style={{ backgroundColor: "#29733C", borderColor: "#29733C", color: "white" }}
                     >
                       View Details
                     </Link>
