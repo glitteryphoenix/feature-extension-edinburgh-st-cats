@@ -61,27 +61,37 @@ function AllCats() {
       {/* SEARCH BY LOCATION */}
       <span>
         <div
-          className=" searchByLocation d-flex align-items-center gap-3 py-3 card shadow-sm"
+          className="searchByLocation d-flex align-items-center gap-3 py-3 card shadow-sm"
           style={{
             backgroundColor: "#d9d9d9",
             maxWidth: "1200px",
             margin: "auto",
           }}
         >
-          <h5 className="mb-0" style={{ flex: "1" }}>
-            Search for cats in your neighborhood!
-          </h5>
-          <LocationDropDownMenu
-            handleChange={(e) => setLocation(e.target.value)}
-            className="form-select form-select-sm "
-          />
-          <button
-            onClick={fetchCatsByLocation}
-            className="btn btn-success"
-            style={{ fontSize: "1rem", width: "100px" }}
-          >
-            Search
-          </button>
+          <div className="row">
+            <div className="col">
+              <h5 className="mb-0" style={{ flex: "1" }}>
+                Search for cats in your neighborhood!
+              </h5>
+            </div>
+
+            <div className="col">
+              <LocationDropDownMenu
+                handleChange={(e) => setLocation(e.target.value)}
+                className="form-select form-select-sm"
+              />
+            </div>
+
+            <div className="col">
+              <button
+                onClick={fetchCatsByLocation}
+                className="btn btn-success"
+                style={{ fontSize: "1rem", width: "100px" }}
+              >
+                Search
+              </button>
+            </div>
+          </div>
         </div>
       </span>
 
