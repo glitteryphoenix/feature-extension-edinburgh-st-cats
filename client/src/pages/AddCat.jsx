@@ -41,11 +41,11 @@ function AddCat() {
   }
 
   return (
-    <div
-      className="add-cat-container d-flex justify-content-center align-items-center vh-100"
-      style={{ backgroundColor: "#d9d9d9" }} // Set the background color here
-    >
-      <div className="card p-4 add-cat-form w-50 border-0 bg-white"> {/* Set the card's background color to white */}
+    <div className="add-cat-container d-flex justify-content-center align-items-center vh-100">
+      <div
+        className="card p-4 add-cat-form border-0 bg-white card shadow"
+        style={{ maxWidth: "600px", width: "100%" }}
+      >
         <h2 className="text-center mb-4">Add New Cat</h2>
 
         {error && <p className="alert alert-danger">{error}</p>}
@@ -54,7 +54,9 @@ function AddCat() {
         <form onSubmit={handleSubmit}>
           <div className="input-group mb-3">
             <div className="input-group-prepend">
-              <label className="input-group-text" htmlFor="basic-addon1">Name</label>
+              <label className="input-group-text" htmlFor="basic-addon1">
+                Name
+              </label>
             </div>
             <input
               type="text"
@@ -71,7 +73,9 @@ function AddCat() {
           {/* LOCATION */}
           <div className="input-group mb-3">
             <div className="input-group-prepend">
-              <label className="input-group-text" htmlFor="locationSelect">Location</label>
+              <label className="input-group-text" htmlFor="locationSelect">
+                Location
+              </label>
             </div>
             <LocationDropDownMenu handleChange={handleChange} />
           </div>
@@ -79,7 +83,9 @@ function AddCat() {
           {/* IMAGE URL */}
           <div className="input-group mb-3">
             <div className="input-group-prepend">
-              <span className="input-group-text" id="basic-addon2">Image URL</span>
+              <span className="input-group-text" id="basic-addon2">
+                Image URL
+              </span>
             </div>
             <input
               type="text"
@@ -95,7 +101,9 @@ function AddCat() {
           {/* DESCRIPTION */}
           <div className="input-group mb-3">
             <div className="input-group-prepend">
-              <span className="input-group-text" id="basic-addon3">Description</span>
+              <span className="input-group-text" id="basic-addon3">
+                Description
+              </span>
             </div>
             <textarea
               className="form-control"
@@ -112,7 +120,9 @@ function AddCat() {
           {/* COLOUR */}
           <div className="input-group mb-3">
             <div className="input-group-prepend">
-              <span className="input-group-text" id="basic-addon4">Colour</span>
+              <span className="input-group-text" id="basic-addon4">
+                Colour
+              </span>
             </div>
             <input
               type="text"
@@ -144,6 +154,5 @@ function AddCat() {
 }
 
 export default AddCat;
-
 
 // export default AddCat;

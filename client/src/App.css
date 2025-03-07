@@ -30,6 +30,10 @@ background-image: url("data:image/svg+xml,%3Csvg width='60' height='48' viewBox=
   text-align: left !important;
 }
 
+/* .searchByLocation {
+ display: inline-flexbox !important;
+} */
+
 /* .text-muted {
   text-align: left;
   color: black !important;

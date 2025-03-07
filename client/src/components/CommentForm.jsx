@@ -63,7 +63,7 @@ function CommentForm({ catId, onCommentAdded }) {
   const [formData, setFormData] = useState({
     title: "",
     comment: "",
-    username: ""
+    username: "",
   });
 
   const [error, setError] = useState(null);
@@ -79,11 +79,14 @@ function CommentForm({ catId, onCommentAdded }) {
     console.log("Submitting comment:", formData); // ✅ Debugging log
 
     try {
-      const res = await fetch(`http://localhost:4000/api/comments/cat/${catId}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        `http://localhost:4000/api/comments/cat/${catId}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
       console.log("Response status:", res.status); // ✅ Debugging log
 
@@ -108,7 +111,6 @@ function CommentForm({ catId, onCommentAdded }) {
       <h3>Leave a Comment</h3>
       {error && <p className="text-danger">{error}</p>}
       <form onSubmit={handleSubmit}>
-       
         <textarea
           className="form-control mb-2"
           name="comment"
@@ -126,12 +128,16 @@ function CommentForm({ catId, onCommentAdded }) {
           onChange={handleChange}
           required
         />
-        <button type="submit"  className="btn btn-success" 
-          style={{ fontSize: "1rem", width: "100px" }}>Submit</button>
+        <button
+          type="submit"
+          className="btn btn-success"
+          style={{ fontSize: "1rem", width: "100px" }}
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
 }
 
 export default CommentForm;
-
