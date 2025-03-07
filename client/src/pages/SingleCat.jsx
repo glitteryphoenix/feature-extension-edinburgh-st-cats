@@ -49,31 +49,35 @@ function SingleCat() {
       .catch((err) => console.error("Error fetching comments:", err));
   }
 
-  if (loading) return <p className="text-center">Loading...</p>;
-  if (error) return <p className="text-danger text-center">Error: {error}</p>;
+  if (loading) return <p >Loading...</p>;
+  if (error) return <p className="text-danger">Error: {error}</p>;
 
   return (
     <div className="container mt-4">
-      <div className="card shadow">
-        <div className="card-body text-center">
-          <h1 className="card-title">{cat?.name || "Unknown Cat"}</h1>
-          <p className="text-muted">📍 {cat?.location || "Unknown location"}</p>
-          <p>{cat?.description || "No description available."}</p>
+      <div className="card shadow" style={{ maxWidth: "800px", margin: "auto" }}>
+        <div className="card-body">
+          <h1 className="card-title text-center">{cat?.name || "Unknown Cat"}</h1>
+        
+          <p className="catDetails text-left">🌍 {cat?.location || "Unknown location"}</p>
+          <p className="catDetails text-left">ℹ️ {cat?.colour || "Unknown colour"}</p>
+          <p className="catDetails text-left">🔎 {cat?.description || "No description available."}</p>
+          </div>
           {cat?.image && (
-            <img src={cat.image} alt={cat.name} className="img-fluid mx-auto d-block" width="300" />
+            <img src={cat.image} alt={cat.name} className="img-fluid mx-auto d-block" width="500" />
           )}
         </div>
-      </div>
+      
 
-      <div className="mt-4">
+      <div className="mt-4" style={{ maxWidth: "800px", margin: "auto" }}>
         <CommentList comments={comments} />
-        <CommentForm catId={id} onCommentAdded={handleCommentAdded} />
+        <CommentForm catId={id} onCommentAdded={handleCommentAdded} buttonColor="#29733c" />
       </div>
     </div>
   );
 }
 
 export default SingleCat;
+
 
 
 // import { useEffect, useState } from "react";

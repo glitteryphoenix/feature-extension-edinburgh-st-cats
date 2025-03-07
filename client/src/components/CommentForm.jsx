@@ -108,15 +108,7 @@ function CommentForm({ catId, onCommentAdded }) {
       <h3>Leave a Comment</h3>
       {error && <p className="text-danger">{error}</p>}
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          className="form-control mb-2"
-          name="title"
-          placeholder="Title"
-          value={formData.title}
-          onChange={handleChange}
-          required
-        />
+       
         <textarea
           className="form-control mb-2"
           name="comment"
@@ -134,7 +126,8 @@ function CommentForm({ catId, onCommentAdded }) {
           onChange={handleChange}
           required
         />
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit"  className="btn btn-success" 
+          style={{ fontSize: "1rem", width: "100px" }}>Submit</button>
       </form>
     </div>
   );

@@ -52,23 +52,21 @@ function AllCats() {
   }
 
   return (
-    <div className="container mt-5 w-100" style={{ backgroundColor: "#d9d9d9", minHeight: "100vh", padding: "20px" }}>
+    <div className="container w-100" style={{ minHeight: "50vh", padding: "20px" }}>
       {/* SEARCH BY LOCATION */}
-      <div className="text-center my-4">
-        <h3>Search for cats in your neighborhood!</h3>
-        <div className="d-flex justify-content-center align-items-center gap-2">
-          <LocationDropDownMenu 
-            handleChange={(e) => setLocation(e.target.value)} 
-            className="form-select form-select-sm w-auto" 
-          />
-          <button 
-            onClick={fetchCatsByLocation} 
-            className="btn btn-success" 
-            style={{ fontSize: "1.2rem" }}
-          >
-            Search
-          </button>
-        </div>
+      <div className="d-flex justify-content-center align-items-center gap-3 my-4">
+        <h5 className="mb-0">Search for cats in your neighborhood!</h5>
+        <LocationDropDownMenu 
+          handleChange={(e) => setLocation(e.target.value)} 
+          className="form-select form-select-sm w-auto" 
+        />
+        <button 
+          onClick={fetchCatsByLocation} 
+          className="btn btn-success" 
+          style={{ fontSize: "1rem", width: "150px" }}
+        >
+          Search
+        </button>
       </div>
 
       {/* MAP */}
@@ -80,7 +78,7 @@ function AllCats() {
       <div className="text-center my-4"> 
         <Link 
           to="/add-cat" 
-          className="btn btn-success btn-lg px-4 py-4" 
+          className="btn btn-success btn px-4 py-4" 
           style={{ fontSize: "1.2rem" }}
         >
           Add New Cat
@@ -94,7 +92,7 @@ function AllCats() {
             <div key={cat.id} className="col-lg-3 col-md-4 col-sm-6 mb-4"> 
               <div 
                 className="card shadow-sm text-center bg-white"
-                style={{ width: "100%", minHeight: "400px" }}
+                style={{ width: "100%", minHeight: "400px", paddingTop: "15px" }}
               >
                 <img
                   src={cat.image || "https://via.placeholder.com/150"} 
