@@ -23,7 +23,9 @@ function AllCats() {
 
   async function fetchCatsByLocation() {
     try {
-      const res = await fetch(`http://localhost:4000/api/cats/${location}`);
+      const res = await fetch(
+        `http://localhost:4000/api/cats/location/${location}`
+      );
       const data = await res.json();
       setCats(data);
     } catch (err) {
@@ -56,8 +58,7 @@ function AllCats() {
   return (
     <div
       className="container w-100 "
-      style={{ minHeight: "50vh", padding: "20px" }}
-    >
+      style={{ minHeight: "50vh", padding: "20px" }}>
       {/* SEARCH BY LOCATION */}
       <span>
         <div
@@ -66,28 +67,26 @@ function AllCats() {
             backgroundColor: "#d9d9d9",
             maxWidth: "1200px",
             margin: "auto",
-          }}
-        >
-          <div className="row">
-            <div className="col">
-              <h5 className="mb-0" style={{ flex: "1" }}>
+          }}>
+          <div className="row w-100 d-flex align-items-center">
+            <div className="col-md-6">
+              <h4 className="mb-0" style={{ flex: "1" }}>
                 Search for cats in your neighborhood!
-              </h5>
+              </h4>
             </div>
 
-            <div className="col">
+            <div className="col-md-3">
               <LocationDropDownMenu
                 handleChange={(e) => setLocation(e.target.value)}
                 className="form-select form-select-sm"
               />
             </div>
 
-            <div className="col">
+            <div className="col-md-3">
               <button
                 onClick={fetchCatsByLocation}
-                className="btn btn-success"
-                style={{ fontSize: "1rem", width: "100px" }}
-              >
+                className="btn btn-success btn-lg"
+                style={{ fontSize: "1rem", width: "100px" }}>
                 Search
               </button>
             </div>
@@ -107,8 +106,7 @@ function AllCats() {
         <Link
           to="/add-cat"
           className="btn btn-success btn px-4 py-3"
-          style={{ fontSize: "1.2rem" }}
-        >
+          style={{ fontSize: "1.2rem" }}>
           Add New Cat
         </Link>
       </div>
@@ -124,8 +122,7 @@ function AllCats() {
                   width: "100%",
                   minHeight: "400px",
                   paddingTop: "15px",
-                }}
-              >
+                }}>
                 <img
                   src={cat.image || "https://via.placeholder.com/150"}
                   alt={cat.name}
@@ -154,14 +151,12 @@ function AllCats() {
                         backgroundColor: "#29733C",
                         borderColor: "#29733C",
                         color: "white",
-                      }}
-                    >
+                      }}>
                       View Details
                     </Link>
                     <button
                       onClick={() => handleDelete(cat.id)}
-                      className="btn btn-outline-secondary"
-                    >
+                      className="btn btn-outline-secondary">
                       ✖
                     </button>
                   </div>

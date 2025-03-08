@@ -27,7 +27,10 @@ export const getSingleCat = async (catId) => {
 // ✅ Filter cats by location
 export const getCatsByLocation = async (location) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/cats/${location}`);
+    const response = await axios.get(
+      `${API_BASE_URL}/cats/location/${location}`
+    );
+    console.log(location);
     return response.data;
   } catch (error) {
     console.error("Error fetching cats:", error);
@@ -51,7 +54,7 @@ export const postComment = async (catId, commentText, author) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/comments/cat/${catId}`, {
       comment_text: commentText,
-      author: author
+      author: author,
     });
     return response.data;
   } catch (error) {
