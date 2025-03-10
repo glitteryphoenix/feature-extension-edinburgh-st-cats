@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LocationDropDownMenu from "../components/LocationDropdownMenu";
+import Map from "../components/Map";
 
 function AddCat() {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ function AddCat() {
   });
 
   const [error, setError] = useState(null);
+  const [location, setLocation] = useState(""); // Add state for location
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -44,11 +46,45 @@ function AddCat() {
     <div className="add-cat-container d-flex justify-content-center align-items-center vh-100">
       <div
         className="card p-4 add-cat-form border-0 bg-white card shadow"
-        style={{ maxWidth: "600px", width: "100%" }}
-      >
+        style={{ maxWidth: "600px", width: "100%" }}>
         <h2 className="text-center mb-4">Add New Cat</h2>
 
         {error && <p className="alert alert-danger">{error}</p>}
+
+        {/* SEARCH BY LOCATION */}
+
+        {/* <div className="input-group mb-3 align-items-center">
+          <div className="input-group-prepend">
+            <label>
+              Choose a neighborhood to see if the cat is already featured.
+            </label>
+
+            <div className="d-flex align-items-center">
+              <div className="col-md-8 pe-2 ">
+                <LocationDropDownMenu
+                  handleChange={(e) => setLocation(e.target.value)}
+                  className="form-select form-select-sm"
+                />
+              </div>
+
+              <div className="col-md-3">
+                <button
+                  onClick={fetchCatsByLocation} // Add functionality so the results actually show up below
+                  className="btn w-30"
+                  style={{
+                    backgroundColor: "#29733C",
+                    borderColor: "#29733C",
+                    color: "white",
+                  }}>
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div> */}
+
+        {/* SHOW RESULTS AND AN ADD NEW CAT BUTTON W/ ONCLICK SHOW FORM BELOW? 
+        DOES THIS FORM NEED TO BE A NEW COMPONENT THEN?  */}
 
         {/* NAME */}
         <form onSubmit={handleSubmit}>
@@ -113,8 +149,7 @@ function AddCat() {
               onChange={handleChange}
               placeholder="Include any relevant information about this cat."
               required
-              aria-describedby="basic-addon3"
-            ></textarea>
+              aria-describedby="basic-addon3"></textarea>
           </div>
 
           {/* COLOUR */}
@@ -143,8 +178,7 @@ function AddCat() {
               backgroundColor: "#29733C",
               borderColor: "#29733C",
               color: "white",
-            }}
-          >
+            }}>
             Submit
           </button>
         </form>
@@ -154,5 +188,3 @@ function AddCat() {
 }
 
 export default AddCat;
-
-// export default AddCat;
